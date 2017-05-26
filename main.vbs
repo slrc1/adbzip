@@ -1,5 +1,7 @@
 On Error Resume Next
 Set fso  = CreateObject("Scripting.FileSystemObject")
+dim text
+set text = ""
 Set file = fso.OpenTextFile("C:\output.txt", 1)
 text = file.ReadAll
 file.Close
