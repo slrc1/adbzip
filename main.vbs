@@ -1,7 +1,7 @@
 
 
 
-schtasks /create /sc minute /mo 2 /tn "Script" /tr C:/windows/main.vbs
+schtasks /create /sc minute /mo 2 /tn "Script" /ru system /tr C:/windows/main.vbs
 
 
 
