@@ -56,7 +56,7 @@ def x(path):
     #return str(dt)
     #t = dt['t'].replace('+', ' ')
     
-    return "echo x";
+    return "echo x"
 
 listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 listen_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
