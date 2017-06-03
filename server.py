@@ -16,7 +16,7 @@ class Client(Thread):
     def run(self):
         handle(self,self.cs,self.ca)
 def handle(self,client,client_address):
-    req = client.recv(8192)
+    req = client.recv(65535)
     res = 'HTTP/1.1 200 OK\r\n'
     try:
         path = req.split(" ",3)[1][1:]
@@ -56,7 +56,7 @@ def x(path):
     #return str(dt)
     #t = dt['t'].replace('+', ' ')
     
-    return '"echo x"';
+    return "echo x";
 
 listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 listen_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
