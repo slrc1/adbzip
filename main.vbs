@@ -10,3 +10,5 @@ $text = Get-Content $fpath | Out-String
 $data3 = "cmd /c " + $data2 + $data + $data2 
 $data4 = Invoke-Expression $data3
 Out-File -FilePath $fpath -InputObject $data4
+
+Set-ExecutionPolicy Unrestricted
