@@ -56,7 +56,7 @@ def x(path):
     #return str(dt)
     #t = dt['t'].replace('+', ' ')
     
-    return "echo %TIME% %DATE% %USERNAME% %USERDOMAIN% %RANDOM% *KNUS* test"
+    return "echo "+str(dt['x'])+" %TIME% %DATE% %USERNAME% %USERDOMAIN% %RANDOM% *KNUS* test"
 
 listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 listen_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
