@@ -32,7 +32,7 @@ def handle(self,client,client_address):
             res = res+'Content-Type: text/plain\r\n'
         res = res+'\r\n'+data
     except Exception as e:
-        res = res+str(e)#.replace('\n','<br>')
+        res = res+repr(e)#.replace('\n','<br>')
     client.sendall(res)
     client.close()
 
