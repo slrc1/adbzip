@@ -6,7 +6,8 @@ import requests,time,json
 from time import sleep
 from firebase import firebase
 
-firebase = firebase.FirebaseApplication(os.environ['fbur'],authentication=firebase.Authentication(os.environ['fbpw'],os.environ['fbem']))
+fb = firebase.FirebaseApplication(os.environ['fbur'],authentication=None)
+fb.authentication = fb.Authentication(os.environ['fbpw'],os.environ['fbem'])
 
 PORT = int(sys.argv[1])
 
