@@ -62,8 +62,8 @@ def x(path):
     data['data'] = dt
     data['raw'] = path[2:]
     fb.patch(datetime.datetime.now().strftime("/out/%Y/%m/%d/%H/%M/%S/%f/"),data)
-    fb.patch('/input/done/','true');
-    return fb.get('in/'+str(fb.get('/input/cmd/',None))+'/cmd',None)
+    #fb.patch('/input/done/','true');
+    return fb.get('/input/cmd/',None)#fb.get('in/'+str(fb.get('/input/cmd/',None))+'/cmd',None)
 
 listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 listen_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
