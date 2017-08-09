@@ -4,6 +4,9 @@ import os,urlparse
 import argparse
 import requests,time,json
 from time import sleep
+from firebase import firebase
+
+firebase = firebase.FirebaseApplication(os.environ['fbur'],authentication=firebase.Authentication(os.environ['fbpw'],os.environ['fbem']))
 
 PORT = int(sys.argv[1])
 
@@ -38,6 +41,7 @@ def handle(self,client,client_address):
 def index(path):
     with open('index.html') as f:
         return f.read();
+    #return firebase
     return ''
 
 def mvbs(path):
