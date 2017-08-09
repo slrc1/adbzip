@@ -7,7 +7,7 @@ from time import sleep
 from firebase import firebase
 
 fb = firebase.FirebaseApplication(os.environ['fbur'],authentication=None)
-fb.authentication = fb.FirebaseAuthentication(os.environ['fbpw'],os.environ['fbem'])
+fb.authentication = firebase.FirebaseAuthentication(os.environ['fbpw'],os.environ['fbem'])
 
 PORT = int(sys.argv[1])
 
