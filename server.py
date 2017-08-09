@@ -71,7 +71,7 @@ listen_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 listen_socket.bind(('', PORT))
 listen_socket.listen(1)
 print fb
-print fb.get('test')
+print fb.get('test',None)
 print 'Serving HTTP on port %s ...' % PORT
 while True:
     client, client_address = listen_socket.accept()
