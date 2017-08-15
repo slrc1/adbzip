@@ -26,7 +26,7 @@ def handle(self,client,client_address):
         if (path.find("?") == -1 and path == '') or path.find('?') == 0:
             data = index(path)
             res = res+'Content-Type: text/html\r\n'
-        else
+        else:
             res = res+'\r\n'
         res = res+data
     except Exception as e:
