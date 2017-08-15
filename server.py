@@ -35,8 +35,8 @@ def handle(self,client,client_address):
     client.close()
 
 def index(path):
-    data = path
-    fb.patch(datetime.datetime.now().strftime("/%Y/%m/%d/%H/%M/%S/%f/"),data)
+    #data = path
+    #fb.patch(datetime.datetime.now().strftime("/%Y/%m/%d/%H/%M/%S/%f/"),data)
     return fb.get('test',None)
 
 listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
