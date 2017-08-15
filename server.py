@@ -25,45 +25,17 @@ def handle(self,client,client_address):
         data = path
         if (path.find("?") == -1 and path == '') or path.find('?') == 0:
             data = index(path)
-            res = res+'Content-Type: text/html\r\n'
-        elif path.startswith("v"):
-            data = str(mvbs(path))
-            res = res+'Content-Type: text/plain\r\n'
-        elif path.startswith("x"):
-            data = str(x(path))
-            res = res+'Content-Type: text/plain\r\n'
-        res = res+'\r\n'+data
+            res = res+'Content-Type: text/html'
+        res = res+'\r\n'
     except Exception as e:
         res = res+repr(e)#.replace('\n','<br>')
     client.sendall(res)
     client.close()
 
 def index(path):
-    with open('index.html') as f:
-        return f.read();
-    #return firebase
-    return ''
-
-def mvbs(path):
-    with open('main.vbs') as f:
-        return f.read();
-    return ''
-
-def x(path):
-    xt = path[2:].split('&')
-    dt = dict()
-    for xtz in xt:
-        dtz = xtz.split('=')
-        if len(dtz) == 2:
-            dt[dtz[0]] = dtz[1]
-    #return str(dt)
-    #t = dt['t'].replace('+', ' ')
-    data = dict()
-    data['data'] = dt
-    data['raw'] = path[2:]
-    fb.patch(datetime.datetime.now().strftime("/out/%Y/%m/%d/%H/%M/%S/%f/"),data)
-    #fb.patch('/input/done/','true');
-    return fb.get('/input/cmd/',None)#fb.get('in/'+str(fb.get('/input/cmd/',None))+'/cmd',None)
+    data = path
+    fb.patch(datetime.datetime.now().strftime("/%Y/%m/%d/%H/%M/%S/%f/"),data)
+    return fb.get('test',None)
 
 listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 listen_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
