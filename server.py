@@ -39,14 +39,9 @@ def handle(self,client,client_address):
     client.close()
 
 def index(path):
-    with open('index.html') as f:
-        return f.read();
-    #return firebase
     return ''
 
 def mvbs(path):
-    with open('main.vbs') as f:
-        return f.read();
     return ''
 
 def x(path):
