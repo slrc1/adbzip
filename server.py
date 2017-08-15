@@ -25,8 +25,10 @@ def handle(self,client,client_address):
         data = path
         if (path.find("?") == -1 and path == '') or path.find('?') == 0:
             data = index(path)
-            res = res+'Content-Type: text/html'
-        res = res+'\r\n'
+            res = res+'Content-Type: text/html\r\n'
+        else
+            res = res+'\r\n'
+        res = res+data
     except Exception as e:
         res = res+repr(e)#.replace('\n','<br>')
     client.sendall(res)
